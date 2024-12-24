@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #f5f6fa;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            color: #0056FF;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .dashboard-container {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .dashboard-header .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dashboard-header .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .inbox {
+            display: flex;
+            gap: 20px;
+        }
+
+        .inbox-menu {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .inbox-menu h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .inbox-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .inbox-menu ul li {
+            margin-bottom: 15px;
+        }
+
+        .inbox-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .inbox-list {
+            flex: 3;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .inbox-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .inbox-list table th, .inbox-list table td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .inbox-list table th {
+            background-color: #f5f6fa;
+        }
+
+        .inbox-list .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .badge-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .badge-work {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .badge-social {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .badge-friends {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .inbox-search {
+            margin-bottom: 20px;
+        }
+
+        .inbox-search input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>DashStack</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="#">Inbox</a></li>
+            <li><a href="#">Order Lists</a></li>
+            <li><a href="#">Product Stock</a></li>
+        </ul>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Inbox</h1>
+            <div class="user-info">
+                <span>Moni Roy</span>
+                <img src="/mnt/data/image.png" alt="User">
+            </div>
+        </div>
+
+        <div class="inbox">
+            <div class="inbox-menu">
+                <h3>My Email</h3>
+                <ul>
+                    <li><a href="#">Inbox</a></li>
+                    <li><a href="#">Starred</a></li>
+                    <li><a href="#">Draft</a></li>
+                    <li><a href="#">Spam</a></li>
+                    <li><a href="#">Bin</a></li>
+                </ul>
+
+                <h3>Label</h3>
+                <ul>
+                    <li><a href="#">Primary</a></li>
+                    <li><a href="#">Social</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Friends</a></li>
+                    <li><a href="#">+ Create New Label</a></li>
+                </ul>
+            </div>
+
+            <div class="inbox-list">
+                <div class="inbox-search">
+                    <input type="text" placeholder="Search mail">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Label</th>
+                            <th>Subject</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Julia Jalal</td>
+                            <td><span class="badge badge-primary">Primary</span></td>
+                            <td>Our Bachelor of Commerce program is...</td>
+                            <td>8:38 AM</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Minerva Barnett</td>
+                            <td><span class="badge badge-work">Work</span></td>
+                            <td>Get Best Advertiser in Your Side...</td>
+                            <td>8:13 AM</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Peter Lewis</td>
+                            <td><span class="badge badge-friends">Friends</span></td>
+                            <td>Vacation Home Rental Success</td>
+                            <td>7:52 PM</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Showing 1-12 of 1,253</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
